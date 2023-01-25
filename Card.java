@@ -1,18 +1,20 @@
-//card.java
-//Card class represents a playing card
+// Programmer: Ronin Sloan & Tuan Le
+// Lab 4 -- Card Game
+// Purpose: Create and run blackjack
 
-public class Card{
-    private String face; //face of card ("ace, 11, etc.")
-    private String suit; //suit of card ("hearts spades")
+public class Card {
+    private final String face; // face or card ("Ace","Deuce",...)
+    private final String suit; // suit of card ("Hearts", "Diamonds",...)
 
-    //two-argument constructor initializes card's face and suit.
-    public Card(String cardFace, String cardSuit){
-        this.face = cardFace; //initializes face of card
-        this.suit = cardSuit; //initializes suit of card
-    }//end of constructor
+    // two-argument constructor initializes card's afce and suit
+    public Card(String cardFace, String cardSuit) {
+        this.face = cardFace; // initializes face of card
+        this.suit = cardSuit; // initialize suit of card
+    } // end of Card Constructor 
 
-    //return string representation of card
-    public String toString(){
+    // return String representation of Card
+    public String toString() {
         return face + " of " + suit;
-    }//end of toString method
-}//end of class card
+    } // end of toString method
+
+} // End of Card
