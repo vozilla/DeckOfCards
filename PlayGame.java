@@ -6,22 +6,27 @@
 
 import java.util.Scanner;
     
-//Extend allows you to use variables from different classes
-public class PlayGame extends BlackJack {
+public class PlayGame extends CardGame {
     private int loop;
     private int roundLoop;
     private String response;
-    BlackJack blackJack = new BlackJack();
-
-    
-    // CONSTRUCTOR
+    CardGame blackJack = new CardGame();
+    // Constructor
     public PlayGame(){
         this.loop = 0;
         this.roundLoop = 0;
-        }
-
-
-    // STARTGAME, USER INTERFACE
+    }
+    // the main menu of the program
+    public String mainMenu() {
+        Scanner game = new Scanner(System.in);
+        System.out.printf("Enter P to Play the Game%n");
+        System.out.printf("or%n");
+        System.out.printf("Enter E to Exit the Game%n");
+        response = game.next();
+        response = response.substring(0,1);
+        return response;
+    } // end of mainMenu method
+    // starts a game of blackjack
     public void startGame() {
         while (loop != 1) {
             response = mainMenu();
@@ -39,21 +44,7 @@ public class PlayGame extends BlackJack {
             }
         }// end of while loop
     }// end of startGame
-    
-
-    // MAIN MENU, gets user's response using scanner
-    public String mainMenu() {
-        Scanner game = new Scanner(System.in);
-        System.out.printf("Enter P to Play the Game%n");
-        System.out.printf("or%n");
-        System.out.printf("Enter E to Exit the Game%n");
-        response = game.next();
-        response = response.substring(0,1);
-        return response;
-    }    
-
-
-    // HIT OR STAND, gets user's response using scanner
+    // asks the user to hit or stand
     public String HitOrStand() {
 
         Scanner game = new Scanner(System.in);
@@ -61,10 +52,8 @@ public class PlayGame extends BlackJack {
         response = game.next();
         response = response.substring(0,1);
         return response;
-    }    
-
-
-    // START ROUND, plays a round
+    }     // end of hitOrStand method
+    // starts a round of blackjack
     public void startRound() {
         blackJack.startGame();
         while (roundLoop != 1) {
@@ -84,7 +73,6 @@ public class PlayGame extends BlackJack {
             System.out.printf("%n\tEnter a valid response%n%n");
         }
     }
-    roundLoop = 0;
+        roundLoop = 0;
     }// end of startRound
-
 }// end of class
